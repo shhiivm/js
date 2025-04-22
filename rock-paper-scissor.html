@@ -6,6 +6,62 @@
     <title>Rock Paper Scissor</title>
 </head>
 <body>
-    
+    <div>
+
+    <!-- rock button  -->
+    <button
+    onclick="
+    let bot = computerFunction();
+
+    if(bot == 'rock') console.log(`It's a Tie`);
+    else if( bot == 'paper') console.log(`You Lost.`)
+    else console.log(`You won`)
+    ">Rock</button>
+
+
+    <!-- paper button  -->
+    <button
+    onclick="
+    bot = computerFunction();
+
+    if(bot == 'rock') console.log(`You Won.`);
+    else if( bot == 'paper') console.log(`It's a Tie`)
+    else console.log(`You Lost`)
+    ">Paper</button>
+
+
+    <!-- Scissor button  -->
+    <button
+    onclick="
+    bot = computerFunction();
+
+    if(bot == 'rock') console.log(`You Lost.`);
+    else if( bot == 'paper') console.log(`You Won`)
+    else console.log(`It's a Tie`)
+    ">Scissor</button>
+    </div>
+
+
+
+    <script>
+        let computerChoice = '';
+
+        function computerFunction(){
+            let num = Math.floor(Math.random()*3);
+
+            console.log(num);
+
+            if(num ==1){
+                computerChoice = 'rock'
+            }
+            else if(num == 2){
+                computerChoice = 'paper'
+            }else{
+                computerChoice = 'scissor'
+            }
+            return computerChoice;
+        }
+
+    </script>
 </body>
 </html>
