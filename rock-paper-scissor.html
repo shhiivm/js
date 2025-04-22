@@ -11,21 +11,21 @@
     <div>
 
         <!-- rock button  -->
-    <button onclick="
+        <button onclick="
     let bot = computerFunction();
     gamefunction(bot,'rock');
     ">Rock</button>
 
 
         <!-- paper button  -->
-    <button onclick="
+        <button onclick="
     bot = computerFunction();
     gamefunction(bot,'paper');
     ">Paper</button>
 
 
         <!-- Scissor button  -->
-    <button onclick="
+        <button onclick="
     bot = computerFunction();
     gamefunction(bot,'scissor')
     ">Scissor</button>
@@ -36,10 +36,14 @@
     <script>
         let computerChoice = '';
 
+        const score = {
+            wins: 0,
+            lost: 0,
+            tie: 0
+        }
+
         function computerFunction() {
             let num = Math.floor(Math.random() * 3);
-
-            console.log(num);
 
             if (num == 1) {
                 computerChoice = 'rock'
@@ -55,14 +59,25 @@
 
         let result = '';
         function gamefunction(computerChoice, userChoice) {
-            if (computerChoice === userChoice) result = `It's a Tie.`;
+            if (computerChoice === userChoice) {
+                result = `It's a Tie.`;
+                score.tie++;
+            }
             else if (computerChoice == 'rock' && userChoice == 'scissor' ||
                 computerChoice == 'paper' && userChoice == 'rock' ||
                 computerChoice == 'scissor' && userChoice == 'paper'
-            ) result = `You Lost.`;
-            else result = `You Won`;
+            ) {
+                result = `You Lost.`;
+                score.lost++;
+            }
+            else {
+                result = `You Won`;
+                score.wins++;
+            }
 
-            alert(`You choose ${userChoice}, Computer choose ${computerChoice}. ${result}`);
+            alert(`You choose ${userChoice}, Computer choose ${computerChoice}. ${result}
+Total Game played : ${score.wins + score.lost + score.tie}
+Won: ${score.wins}, Lost: ${score.lost}, Tie: ${score.tie}`);
         }
     </script>
 </body>
