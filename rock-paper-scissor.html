@@ -7,18 +7,18 @@
     <title>Rock Paper Scissor</title>
 </head>
 <style>
-    div{
+    div {
         border: 2px solid black;
         width: 500px;
         height: 100px;
-        text-align:  center;
+        text-align: center;
         margin-top: 10%;
         padding-top: 2%;
         box-sizing: border-box;
         margin-left: 30%;
     }
 
-    button{
+    button {
         padding-left: 10px;
         padding-right: 10px;
         margin-right: 10px;
@@ -49,8 +49,7 @@
     gamefunction(bot,'scissor')
     ">Scissor</button>
 
-    <button
-    onclick="
+        <button onclick="
     score.lost = 0;
     score.tie =0;
     score.wins =0;
@@ -62,11 +61,8 @@
     <script>
         let computerChoice = '';
 
-        const score = {
-            wins: 0,
-            lost: 0,
-            tie: 0
-        }
+        const score = JSON.parse(localStorage.getItem('score'));
+
 
         function computerFunction() {
             let num = Math.floor(Math.random() * 3);
@@ -100,6 +96,9 @@
                 result = `You Won`;
                 score.wins++;
             }
+
+
+            localStorage.setItem('score', JSON.stringify(score));
 
             alert(`You choose ${userChoice}, Computer choose ${computerChoice}. ${result}
 Total Game played : ${score.wins + score.lost + score.tie}
