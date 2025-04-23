@@ -62,14 +62,12 @@
     <script>
         let computerChoice = '';
 
-        let score = JSON.parse(localStorage.getItem('score'));
-
-        if(score == null)
-        score = {
-            wins : 0,
-            lost : 0,
-            tie : 0
-        }
+    let score = JSON.parse(localStorage.getItem('score')) ||
+        {
+    wins : 0,
+    lost : 0,
+    tie : 0
+}
 
 
         function computerFunction() {
