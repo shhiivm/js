@@ -53,6 +53,7 @@
     score.lost = 0;
     score.tie =0;
     score.wins =0;
+    localStorage.removeItem('score')
     ">Reset Game</button>
     </div>
 
@@ -61,7 +62,14 @@
     <script>
         let computerChoice = '';
 
-        const score = JSON.parse(localStorage.getItem('score'));
+        let score = JSON.parse(localStorage.getItem('score'));
+
+        if(score == null)
+        score = {
+            wins : 0,
+            lost : 0,
+            tie : 0
+        }
 
 
         function computerFunction() {
